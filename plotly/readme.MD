@@ -1,9 +1,8 @@
 # Plotly-for-python
-Files for my YouTube playlist on data visualization using Plotly with Python.  View at Juan Koppler's [YouTube video](https://youtu.be/87jyeklhTH8)
+1. _Overview.ipynb - gives overview of plotly's main features
+2. Other files are from Juan Koppler's [YouTube video](https://youtu.be/87jyeklhTH8)
 
-# Kashi's notes
-
-## General information
+# General Information
 1. Beautiful notes given in [Plotly Fundamentals](https://plot.ly/python/plotly-fundamentals/) - esepecially on [Creating and Updating Figures](https://plot.ly/python/creating-and-updating-figures/) for a good overview.
 
 2. Key-Value pairs for plotly's dictionaries can be found in the [Full Reference](https://plot.ly/python/reference/) page. The left menu is simply presented as:
@@ -12,6 +11,9 @@ Files for my YouTube playlist on data visualization using Plotly with Python.  V
 
 
 ## Steps to initiate plotly
+After ver 4, one can directly run plotly in Jupyter, without using offline mode.
+
+Juan's notes - which are based on plotly version 3 - recommends:
 1. Set the offline mode
 2. Import high-level chart objects using <pre><code>import plotly.graph_objs as go</code></pre>
 

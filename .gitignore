@@ -1,0 +1,16 @@
+#...ignore the following files except the ones below with !
+.vs*
+.env
+.ipynb_checkpoints
+
+tempCodeRunnerFile.py
+.~lock*.*
+
+*.pkl
+*.log
+
+#...ignore folders
+__py*
+
+#...but do not ignore these files
+!*.ipynb

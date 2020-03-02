@@ -23,11 +23,11 @@ class Employee:
         
     @property
     def email(self):
-        return '{}.{}@email.com'.format(self.first, self.last)
+        return f'{self.first}.{self.last}@email.com'
     
     @property
     def fullname(self):
-        return '{} {}'.format(self.first, self.last)
+        return f'{self.first} {self.last}'
     
 emp_1 = Employee('John', 'Smith')
 emp_2 = Employee('Corey', 'Schafer')

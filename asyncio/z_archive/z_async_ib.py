@@ -1,3 +1,6 @@
+# tried to run asyncio on ib with a bad egg and tqdm
+# superceded by asyncio_ibkr.py in the parent directory
+
 import asyncio
 
 import numpy as np

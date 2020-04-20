@@ -1,5 +1,5 @@
 # Experimental program to evaluate asyncio in IBKR
-# Program needs iboop's _df_unds.pkl
+# Program needs iboop's _df_unds.pkl for underlying contracts
 
 import asyncio
 import pickle

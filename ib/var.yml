@@ -1,0 +1,68 @@
+---
+COMMON:
+  HOST: 127.0.0.1
+  CID: 0
+  MASTERCID: 10 # Master client for retrieving ALL (manual and API) orders and trades
+  BLK: 50
+NSE:
+  FSPATH: "./data/"
+  LOGPATH: "./data/nse_"
+  PORT: 3000 # 3000 = Live, 3001=Paper Trades
+  CURRENCY: INR
+  EXCHANGE: NSE
+  PREC: 0.05
+  MINDTE: 1
+  MAXDTE: 50
+  CALLSTD: 2.5 # Min stdev for calls
+  PUTSTD: 2 # Min stdev for puts
+  FALLRISE: False # Flag to use fall rise as band
+  HILO52: False # Flag to use hilo52 as band.
+  # If both FALLRISE & HILO52 are selected, best of both price will be taken.
+  ONLYPUTS: False
+  TRADING_DAYS: 252
+  MINROM: 2
+  MINOPTSELLPRICE: 0.4
+  BLACKLIST: # Ref: https://zerodha.com/margin-calculator/SPAN/
+  # Updated on 12-July-2020
+  - RCOM
+  CUSHION_LIMIT: 0.15 # Cushion should be greater than the cushion limit. Cushion = (Equity with Loan Value - Maintenance Margin)/NLV
+  MARGIN_LIMIT: 0.7 # Initial margin should not be greater than 90% of NLV
+  POSN_LIMIT: 0.18 # Each symbol's market value should not be greater than 18% of NLV
+  COVERSD: 1.8 # For covered calls and puts
+  IGNORE_BREACH: False
+SNP:
+  FSPATH: "./data/"
+  LOGPATH: "./data/snp_"
+  PORT: 1300
+  CURRENCY: USD
+  EXCHANGE: SMART
+  PREC: 0.01
+  MINDTE: 15
+  MAXDTE: 45
+  CALLSTD: 2.5 # For naked calls
+  PUTSTD: 2.25 # For naked puts
+  FALLRISE: False # Flag to use fall rise as band
+  HILO52: False # Flag to use hilo52 as band. 
+  # If both FALLRISE & HILO52 are selected, best of both price will be taken.
+  ONLYPUTS: False
+  TRADING_DAYS: 252
+  DEFEND_DTE: 30*6 # Minimum no of days for fresh protection / roll (e.g. 30 days x 6 months)
+  DEFEND_TH: 0.2 # Protection threshold. Underlying should be protected against 20% fall
+  MINROM: 2.2
+  MINOPTSELLPRICE: 0.25
+  BLACKLIST:
+  - VXX
+  - RTN # RTN and UTX have merged
+  - UTX
+  - GOOG # price too high!
+  - BKNG # price too high!
+  - AMZN # price too high!
+  CUSHION_LIMIT: 0.3 # Cushion should be greater than the custion limit. Cushion = (Equity with Loan Value - Maintenance Margin)/NLV
+  MARGIN_LIMIT: 0.7 # Initial margin should not be greater than 70% of NLV
+  POSN_LIMIT: 0.04 # Each symbol's market value should not be greater than 4% of NLV
+  COVERSD: 1.2 # For covered calls and puts
+  IGNORE_BREACH: False
+  DEFENDBELOWDTE: 22 # no of days below which rolls need to occur for defends
+  SPECIALS: # Managed manually (outside automation)
+  - TSLA # Gamble
+  - CARR # Unintended short assignment very near strike on 17-Jul-2020

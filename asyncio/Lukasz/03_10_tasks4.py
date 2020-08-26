@@ -3,9 +3,14 @@
 
 
 import asyncio
+import sys
 import time
 from typing import Callable, Coroutine
+
 import httpx
+
+if sys.version_info[0] == 3 and sys.version_info[1] >= 8 and sys.platform.startswith('win'):
+    asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
 
 # Let us start by making a progress reporting async function.
 addr = 'https://langa.pl/crawl'

@@ -8,6 +8,15 @@ autopep8 = "*"
 
 [packages]
 nbformat = "*"
+pandas = "*"
+numpy = "*"
+requests = "*"
+ib-insync = "*"
+tqdm = "*"
+scipy = "*"
+pyyaml = "*"
+lxml = "*"
+ipython = "*"
 
 [requires]
 python_version = "3.8"

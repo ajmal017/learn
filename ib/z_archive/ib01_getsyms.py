@@ -3,6 +3,7 @@ import sys
 import pandas as pd
 from ib_insync import *
 
+
 # insert original program path for imports
 PROGPATH = 'C:/Users/User/Documents/Business/Projects/asyncib/'
 DATAPATH = './data/'
@@ -24,4 +25,4 @@ def get_syms(MARKET):
 
 if __name__ == "__main__":
 
-    get_syms('NSE')
+    print(get_syms('NSE'))

@@ -50,7 +50,7 @@ async def execute_task_pool(ib: IB, cts: set) -> list:
 
     CONCURRENTS = 99
     CHECKPOINT = 20
-    FILL_DELAY = 18
+    FILL_DELAY = 20
 
     tasks = set()
     results = set()
@@ -124,6 +124,10 @@ if __name__ == "__main__":
 
     MARKET = 'SNP'
 
+    # Start the clock
+    import time
+    start = time.time()
+
     # Initialize yaml variables
     with open('var.yml') as f:
         data = yaml.safe_load(f)
@@ -135,26 +139,29 @@ if __name__ == "__main__":
     # get the symlots
     df_symlots = pd.read_pickle('./data/' + MARKET.lower() + '_symlots.pkl')
 
-    # Run for one contract
+    """ # Run for one contract
     with IB().connect('127.0.0.1', 3000, 0) as ib:
         c = df_symlots.contract.to_list()[5]
         df = ib.run(undCoro(ib, c, 15))
-        df.to_pickle('./data/df_unds1.pkl')
-        print(df)
+        df.to_pickle('./data/df_unds1_' + MARKET.lower() + '.pkl')
+        print(df) """
 
     # Run for multiple contracts
-
     cts = set(df_symlots.contract.to_list())
-
     with IB().connect(HOST, PORT, CID) as ib:
         results = ib.run(execute_task_pool(ib=ib, cts=cts))
 
     # print(f'Final results: \n{results}')
 
     df = pd.concat((r.result() for r in results), ignore_index=True)
-    df.to_pickle('./data/df_unds2.pkl')
+    df = df.drop_duplicates(subset=['symbol']).reset_index(drop=True)
+    df.to_pickle('./data/df_unds2_' + MARKET.lower() + '.pkl')
     print(df[['symbol', 'undPrice', 'impliedVolatility']])
 
     print('\n')
 
     print(df[df['undPrice'].isna()])
+
+    print(
+        f'\n\n***Time taken: ' +
+        f'{time.strftime("%H:%M:%S", time.gmtime(time.time()-start))}\n')

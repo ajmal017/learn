@@ -214,9 +214,11 @@ if __name__ == "__main__":
             else ib.run(get_nse(ib))
 
     df.to_pickle(FSPATH + 'df_symlots.pkl') """
+
     with IB().connect(HOST, PORT, CID) as ib:
         df = ib.run(assemble(ib, MARKET, FSPATH))
 
     print(df)
     print(
-        f'Took {time.strftime("%H:%M:%S", time.gmtime(time.time()-start))}')
+        f'\n\n***Time taken: ' +
+        f'{time.strftime("%H:%M:%S", time.gmtime(time.time()-start))}\n')

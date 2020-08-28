@@ -7,7 +7,8 @@ COMMON:
 NSE:
   FSPATH: "./data/"
   LOGPATH: "./data/nse_"
-  PORT: 3000 # 3000 = Live, 3001=Paper Trades
+  PORT: 3000
+  PAPER: 4004 # For paper trades in IBG
   CURRENCY: INR
   EXCHANGE: NSE
   PREC: 0.05
@@ -34,6 +35,7 @@ SNP:
   FSPATH: "./data/"
   LOGPATH: "./data/snp_"
   PORT: 1300
+  PAPER: 4002 # For paper trades in IBG
   CURRENCY: USD
   EXCHANGE: SMART
   PREC: 0.01
